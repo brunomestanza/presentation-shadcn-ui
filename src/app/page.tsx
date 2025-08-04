@@ -1,37 +1,38 @@
-import { PresenterSlide } from '@/components/slides/presenter-slide'
+import { ConceptSlide } from '@/components/slides/concept-slide'
 
 export default function Home() {
 	return (
 		<div>
-			<PresenterSlide
+			<ConceptSlide
 				data={{
 					id: 2,
-					type: 'presenter',
-					title: 'Quem está apresentando?',
-					presenter: {
-						name: 'Bruno Mestanza',
-						role: 'Developer Instructor',
-						company: 'Rocketseat',
-						bio: `Desenvolvedor apaixonado por educação e produto com mais de ${10} anos de experiência em desenvolvimento web. Especialista em JavaScript, React, Next JS, Node.js, produto e Design.`,
-						imageUrl: 'http://github.com/brunomestanza.png',
-						linkedin: 'https://www.linkedin.com/in/brunomestanza',
-						github: 'http://github.com/brunomestanza',
-						expertise: [
-							'JavaScript/TypeScript',
-							'React & Next.js',
-							'React Native',
-							'Node.js',
-							'Design Engineering',
-							'Produtos digitais',
-							'Arquitetura de Software',
-						],
-						achievements: [
-							`Mais de ${10} anos de experiência em desenvolvimento FullStack e Mobile`,
-							'Mentor e educador de tecnologia e inovação',
-							'Entusiasta de Design e desenvolvimento de produtos digitais',
-							'Pós Graduado em desenvolvimento FullStack',
-						],
-					},
+					type: 'concept',
+					title: 'Introdução aos Testes Automatizados',
+					conceptTitle: '🚀 Por que os Testes Automatizados Importam:',
+					concepts: [
+						'Fornecem feedback mais rápido durante os ciclos de desenvolvimento',
+						'Aumentam a qualidade geral e confiabilidade do código',
+						'Reduzem o esforço de testes manuais e erros humanos',
+						'Permitem refatoração e atualizações de código com confiança',
+						'Suportam integração contínua e implantação (CI/CD)',
+						'Capturam bugs antes que cheguem aos ambientes de produção',
+						'Economizam tempo e dinheiro a longo prazo',
+						'Melhoram a produtividade da equipe e confiança do desenvolvedor',
+						'Fornecem documentação viva do comportamento do sistema',
+						'Permitem testes de regressão a cada mudança de código',
+					],
+					imageUrl: '/test-introduction.png',
+					code: `// Nossa função para testar
+function soma(a, b) {
+  return a + b;
+}
+
+// Nosso teste
+if (soma(2, 3) !== 5) {
+  throw new Error("Teste falhou!");
+} else {
+  console.log("✓ Teste passou!");
+}`,
 				}}
 			/>
 		</div>
