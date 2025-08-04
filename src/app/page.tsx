@@ -1,11 +1,16 @@
-import { ThemeToggle } from '@/components/theme/theme-toggle'
-import { Button } from '@/components/ui/button'
+import { TitleSlide } from '@/components/slides/title-slide'
 
 export default function Home() {
 	return (
 		<div>
-			<Button>Add Shadcn</Button>
-			<ThemeToggle />
+			<TitleSlide
+				data={{
+					id: 1,
+					type: 'title',
+					title: 'Introdução aos Testes Automatizados',
+					subtitle: 'Entendendo testes através de exemplos simples e práticos',
+				}}
+			/>
 		</div>
 	)
 }
