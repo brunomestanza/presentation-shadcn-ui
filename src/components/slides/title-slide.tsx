@@ -1,5 +1,3 @@
-'use client'
-
 import { FlaskConical } from 'lucide-react'
 import type { SlideData } from '@/types/slide-types'
 
