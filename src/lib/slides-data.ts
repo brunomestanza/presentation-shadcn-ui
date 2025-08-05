@@ -6,7 +6,7 @@ const now = dayjs()
 const dateIStartedCoding = dayjs('2018-01-01')
 const amountOfYearsCoding = now.diff(dateIStartedCoding, 'years')
 
-export const slideData: SlideData[] = [
+export const slidesData: SlideData[] = [
 	{
 		id: 1,
 		type: 'title',

@@ -1,47 +1,34 @@
-import { QASlide } from '@/components/slides/qa-slide'
+'use client'
 
-export default function Home() {
+import { SlideRenderer } from '@/components/slide-renderer'
+import { NavigationControls } from '@/components/ui/navigation-controls'
+import { Progress } from '@/components/ui/progress'
+import { useKeyboardNavigation } from '@/hooks/use-keyboard-navigation'
+import { usePresentationState } from '@/hooks/use-presentation-state'
+import { slidesData } from '@/lib/slides-data'
+
+export default function PresentationPage() {
+	const { currentSlide, totalSlides, nextSlide, previousSlide } =
+		usePresentationState(slidesData.length)
+
+	useKeyboardNavigation({ nextSlide, previousSlide })
+
 	return (
-		<div className="p-4">
-			<QASlide
-				data={{
-					id: 16,
-					type: 'qa',
-					title: 'Perguntas e Discussão',
-					questions: [
-						{
-							icon: '🤔',
-							question: 'Entendimento',
-							text: 'Qual parte dos testes automatizados foi mais confusa? Vamos esclarecer juntos!',
-						},
-						{
-							icon: '⚡',
-							question: 'Valor Prático',
-							text: 'Qual tipo de teste (Unitário, Integração, Interface) parece mais útil para seus projetos atuais?',
-						},
-						{
-							icon: '🔄',
-							question: 'Implementação',
-							text: 'Quais desafios você antecipa ao implementar testes automatizados no seu fluxo de trabalho?',
-						},
-						{
-							icon: '🚀',
-							question: 'Próximos Passos',
-							text: 'Quais ferramentas ou frameworks de teste você gostaria de aprender a seguir?',
-						},
-						{
-							icon: '💡',
-							question: 'Melhores Práticas',
-							text: 'Quais melhores práticas de teste da sessão de hoje você implementará primeiro?',
-						},
-						{
-							icon: '🎯',
-							question: 'Aplicação no Mundo Real',
-							text: 'Como você pode aplicar esses conceitos de teste aos seus projetos atuais ou futuros?',
-						},
-					],
-				}}
-			/>
+		<div className="w-screen h-screen bg-black overflow-hidden flex justify-center items-center">
+			<div className="w-full h-full flex items-center justify-center">
+				<SlideRenderer slide={slidesData[currentSlide - 1]} isActive={true} />
+			</div>
+
+			<div className="absolute bottom-0 left-0 w-full p-5 flex flex-col gap-2.5 md:gap-4">
+				<NavigationControls
+					currentSlide={currentSlide}
+					totalSlides={totalSlides}
+					onPrevious={previousSlide}
+					onNext={nextSlide}
+				/>
+
+				<Progress value={(currentSlide / totalSlides) * 100} />
+			</div>
 		</div>
 	)
 }
