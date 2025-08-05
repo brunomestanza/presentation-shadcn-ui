@@ -17,7 +17,7 @@ export function QuizSlide({ data }: QuizSlideProps) {
 		new Array(data.questions?.length || 0).fill(false),
 	)
 
-	const questions = data.questions as QuizQuestion[]
+	const questions = data.quizQuestions as QuizQuestion[]
 	const currentQ = questions[currentQuestion]
 
 	const handleAnswerSelect = (answerIndex: number) => {

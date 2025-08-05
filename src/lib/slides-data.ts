@@ -726,7 +726,7 @@ testarFluxoCompras();`,
 		id: 13,
 		type: 'quiz',
 		title: 'Quiz Interativo',
-		questions: [
+		quizQuestions: [
 			{
 				question:
 					'Qual é o principal propósito dos testes unitários no desenvolvimento de software?',
@@ -1076,32 +1076,32 @@ function obterTarefasFiltradas() {
 		questions: [
 			{
 				icon: '🤔',
-				title: 'Entendimento',
+				question: 'Entendimento',
 				text: 'Qual parte dos testes automatizados foi mais confusa? Vamos esclarecer juntos!',
 			},
 			{
 				icon: '⚡',
-				title: 'Valor Prático',
+				question: 'Valor Prático',
 				text: 'Qual tipo de teste (Unitário, Integração, Interface) parece mais útil para seus projetos atuais?',
 			},
 			{
 				icon: '🔄',
-				title: 'Implementação',
+				question: 'Implementação',
 				text: 'Quais desafios você antecipa ao implementar testes automatizados no seu fluxo de trabalho?',
 			},
 			{
 				icon: '🚀',
-				title: 'Próximos Passos',
+				question: 'Próximos Passos',
 				text: 'Quais ferramentas ou frameworks de teste você gostaria de aprender a seguir?',
 			},
 			{
 				icon: '💡',
-				title: 'Melhores Práticas',
+				question: 'Melhores Práticas',
 				text: 'Quais melhores práticas de teste da sessão de hoje você implementará primeiro?',
 			},
 			{
 				icon: '🎯',
-				title: 'Aplicação no Mundo Real',
+				question: 'Aplicação no Mundo Real',
 				text: 'Como você pode aplicar esses conceitos de teste aos seus projetos atuais ou futuros?',
 			},
 		],

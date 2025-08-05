@@ -22,7 +22,8 @@ export interface SlideData {
 	testCode?: string
 	useCases?: UseCase[]
 	exercises?: Exercise[]
-	questions?: Question[] | QuizQuestion[]
+	quizQuestions?: QuizQuestion[]
+	questions?: Question[]
 	frameworks?: Framework[]
 	patterns?: PatternCategory[]
 	imageUrl?: string
@@ -59,7 +60,7 @@ export interface Exercise {
 
 export interface Question {
 	icon: string
-	title: string
+	question: string
 	text: string
 }
 
