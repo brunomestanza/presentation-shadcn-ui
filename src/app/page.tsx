@@ -1,73 +1,78 @@
-import { UseCasesSlide } from '@/components/slides/use-cases-slide'
+import { QuizSlide } from '@/components/slides/quiz-slide'
 
 export default function Home() {
 	return (
 		<div className="p-4">
-			<UseCasesSlide
+			<QuizSlide
 				data={{
-					id: 12,
-					type: 'use-cases',
-					title: 'Casos de Uso do Mundo Real',
-					useCases: [
+					id: 13,
+					type: 'quiz',
+					title: 'Quiz Interativo',
+					questions: [
 						{
-							icon: '💰',
-							title: 'Bug de Cálculo Financeiro',
-							problem:
-								'Um app bancário calcula juros compostos incorretamente, afetando milhares de contas de clientes',
-							solution:
-								'Testes unitários capturariam o erro matemático imediatamente durante o desenvolvimento antes da implantação',
-							example:
-								'calcularJurosCompostos(1000, 0.05, 12, 1) deveria retornar 1051.16, não 1500.00',
+							question:
+								'Qual é o principal propósito dos testes unitários no desenvolvimento de software?',
+							options: [
+								'Testar todo o fluxo de trabalho da aplicação do início ao fim',
+								'Testar funções ou componentes individuais em completo isolamento',
+								'Testar interações da interface do usuário e elementos visuais',
+								'Testar conexões de banco de dados e integrações de API externas',
+							],
+							correctAnswer: 1,
+							explanation:
+								'Testes unitários focam em testar funções ou componentes individuais em isolamento para garantir que funcionem corretamente por conta própria, sem dependências de outras partes do sistema.',
 						},
 						{
-							icon: '📧',
-							title: 'Integração de API Quebrada',
-							problem:
-								'Formulário de contato não envia emails após atualização da API do serviço de email de terceiros',
-							solution:
-								'Testes de integração verificam se o fluxo formulário → validação → API → entrega de email funciona corretamente',
-							example:
-								'enviarFormularioContato() → validarEntrada() → chamarAPIEmail() → confirmarEntrega()',
+							question:
+								'Na pirâmide de testes, qual tipo de teste você deveria ter mais?',
+							options: [
+								'Testes de Interface (Ponta a Ponta)',
+								'Testes de Integração',
+								'Testes Unitários',
+								'Testes Manuais',
+							],
+							correctAnswer: 2,
+							explanation:
+								'Testes unitários deveriam formar a base da pirâmide de testes (70-80% dos testes) porque são rápidos, confiáveis, baratos de manter e ajudam a capturar bugs cedo no desenvolvimento.',
 						},
 						{
-							icon: '👆',
-							title: 'Botão Invisível no Mobile',
-							problem:
-								'Botão de envio fica oculto em dispositivos móveis devido a problemas de media query CSS',
-							solution:
-								'Testes de interface simulam interações móveis e capturam problemas de design responsivo em dispositivos',
-							example:
-								'clicarBotaoEnviar() deveria disparar envio do formulário em telas de 320px a 1920px',
+							question:
+								'Qual é a principal vantagem dos testes automatizados sobre testes manuais?',
+							options: [
+								'É mais caro mas fornece cobertura mais completa',
+								'Fornece feedback mais rápido e reduz significativamente erros humanos',
+								'Só funciona para aplicações simples com funcionalidade básica',
+								'Substitui completamente a necessidade de revisões de código e documentação',
+							],
+							correctAnswer: 1,
+							explanation:
+								'Testes automatizados fornecem feedback mais rápido durante o desenvolvimento, executam consistentemente sem erro humano e podem ser executados repetidamente como parte de pipelines de CI/CD.',
 						},
 						{
-							icon: '🔐',
-							title: 'Vulnerabilidade de Bypass de Autenticação',
-							problem:
-								'Usuários podem acessar páginas de admin protegidas manipulando parâmetros de URL',
-							solution:
-								'Testes ponta a ponta verificam fluxos completos de autenticação e verificações de autorização',
-							example:
-								'acessarPainelAdmin() deveria redirecionar para login quando usuário não tem privilégios de admin',
+							question:
+								'Quando você deveria escrever testes de integração na sua estratégia de testes?',
+							options: [
+								'Apenas depois que todos os testes unitários estão completos e passando',
+								'Para testar como múltiplos componentes trabalham juntos e interagem',
+								'Em vez de testes unitários para economizar tempo de desenvolvimento',
+								'Apenas para componentes de interface de usuário e elementos visuais',
+							],
+							correctAnswer: 1,
+							explanation:
+								'Testes de integração são escritos para verificar se múltiplos componentes funcionam corretamente juntos, testando as interfaces e fluxo de dados entre diferentes partes do sistema.',
 						},
 						{
-							icon: '💳',
-							title: 'Condição de Corrida no Processamento de Pagamento',
-							problem:
-								'Site de e-commerce cobra clientes múltiplas vezes devido a duplo clique no botão de pagamento',
-							solution:
-								'Testes de integração garantem que processamento de pagamento lida com requisições concorrentes adequadamente',
-							example:
-								'processarPagamento() → prevenirDuplicatas() → cobrarCartao() → criarPedido()',
-						},
-						{
-							icon: '📱',
-							title: 'Problema de Compatibilidade Cross-Browser',
-							problem:
-								'Aplicação funciona perfeitamente no Chrome mas quebra nos navegadores Safari e Firefox',
-							solution:
-								'Testes de interface executam através de múltiplos navegadores para capturar problemas de compatibilidade cedo',
-							example:
-								'fluxoLoginUsuario() deveria funcionar consistentemente no Chrome, Firefox, Safari e Edge',
+							question:
+								'Quais características tornam um teste unitário eficaz e manutenível?',
+							options: [
+								'Testa múltiplas funções de uma vez para máxima eficiência',
+								'Requer conexão com banco de dados para ser realista e completo',
+								'É rápido, confiável, independente e testa uma coisa por vez',
+								'Só testa cenários de caminho feliz para economizar tempo',
+							],
+							correctAnswer: 2,
+							explanation:
+								'Um bom teste unitário é rápido (executa em milissegundos), confiável (resultados consistentes), independente (não depende de outros testes) e foca em testar um comportamento específico com asserções claras.',
 						},
 					],
 				}}
