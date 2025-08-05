@@ -1,113 +1,73 @@
-import { PatternsSlide } from '@/components/slides/patterns-slide'
+import { UseCasesSlide } from '@/components/slides/use-cases-slide'
 
 export default function Home() {
 	return (
 		<div className="p-4">
-			<PatternsSlide
+			<UseCasesSlide
 				data={{
-					id: 11,
-					type: 'patterns',
-					title: 'Padrões de Teste e Melhores Práticas',
-					patterns: [
+					id: 12,
+					type: 'use-cases',
+					title: 'Casos de Uso do Mundo Real',
+					useCases: [
 						{
-							category: 'Padrões de Teste',
-							items: [
-								{
-									name: 'Organizar-Agir-Verificar (AAA)',
-									icon: '🎯',
-									description: 'Estruture seus testes em três fases claras',
-									details: [
-										'Organizar: Configure dados e condições de teste',
-										'Agir: Execute a função ou ação sendo testada',
-										'Verificar: Verifique o resultado esperado',
-									],
-									example:
-										"// Organizar\nconst usuario = { nome: 'João' };\n// Agir\nconst resultado = cumprimentarUsuario(usuario);\n// Verificar\nexpect(resultado).toBe('Olá, João!');",
-								},
-								{
-									name: 'Modelo de Objeto de Página (POM)',
-									icon: '📄',
-									description:
-										'Organize testes de interface com objetos de página reutilizáveis',
-									details: [
-										'Crie classes representando páginas web',
-										'Encapsule elementos e ações da página',
-										'Melhora a manutenibilidade e reduz duplicação',
-									],
-									example:
-										'class PaginaLogin {\n  inserirNomeUsuario(nomeUsuario) { /* ... */ }\n  inserirSenha(senha) { /* ... */ }\n  clicarLogin() { /* ... */ }\n}',
-								},
-								{
-									name: 'Testes Orientados por Dados',
-									icon: '📊',
-									description:
-										'Execute o mesmo teste com diferentes conjuntos de dados',
-									details: [
-										'Separe lógica de teste dos dados de teste',
-										'Teste múltiplos cenários eficientemente',
-										'Use fontes de dados externas (CSV, JSON, bancos de dados)',
-									],
-									example:
-										'const dadosTeste = [\n  { entrada: 5, esperado: 25 },\n  { entrada: 3, esperado: 9 }\n];\ndadosTeste.forEach(dados => {\n  test(`quadrado de ${dados.entrada}`, () => {\n    expect(quadrado(dados.entrada)).toBe(dados.esperado);\n  });\n});',
-								},
-							],
+							icon: '💰',
+							title: 'Bug de Cálculo Financeiro',
+							problem:
+								'Um app bancário calcula juros compostos incorretamente, afetando milhares de contas de clientes',
+							solution:
+								'Testes unitários capturariam o erro matemático imediatamente durante o desenvolvimento antes da implantação',
+							example:
+								'calcularJurosCompostos(1000, 0.05, 12, 1) deveria retornar 1051.16, não 1500.00',
 						},
 						{
-							category: 'Melhores Práticas',
-							items: [
-								{
-									name: 'Escreva Testes Claros e Concisos',
-									icon: '✨',
-									description: 'Torne os testes fáceis de ler e entender',
-									details: [
-										'Use nomes descritivos de teste que expliquem o que está sendo testado',
-										'Mantenha testes simples e focados em um comportamento',
-										'Escreva testes que contem uma história sobre seu código',
-									],
-								},
-								{
-									name: 'Isolamento de Testes',
-									icon: '🔒',
-									description:
-										'Garanta que os testes sejam independentes uns dos outros',
-									details: [
-										'Cada teste deve executar independentemente',
-										'Limpe após os testes (resetar estado, limpar dados)',
-										'Testes não devem depender da ordem de execução',
-									],
-								},
-								{
-									name: 'Cobertura de Testes',
-									icon: '📈',
-									description: 'Busque cobertura de teste significativa',
-									details: [
-										'Foque na lógica de negócio crítica e casos extremos',
-										'Busque 70-80% de cobertura de código como diretriz',
-										'Qualidade sobre quantidade - testes significativos importam mais',
-									],
-								},
-								{
-									name: 'Convenções de Nomenclatura de Testes',
-									icon: '🏷️',
-									description: 'Use nomes consistentes e significativos',
-									details: [
-										"Use nomes descritivos: 'deveria_retornar_erro_quando_email_invalido'",
-										'Siga convenções da equipe consistentemente',
-										'Inclua o comportamento esperado no nome',
-									],
-								},
-								{
-									name: 'Execução Regular de Testes',
-									icon: '🔄',
-									description:
-										'Execute testes frequentemente e automaticamente',
-									details: [
-										'Integre testes no seu pipeline de CI/CD',
-										'Execute testes antes de fazer commit do código',
-										'Configure execução automática de testes em mudanças de código',
-									],
-								},
-							],
+							icon: '📧',
+							title: 'Integração de API Quebrada',
+							problem:
+								'Formulário de contato não envia emails após atualização da API do serviço de email de terceiros',
+							solution:
+								'Testes de integração verificam se o fluxo formulário → validação → API → entrega de email funciona corretamente',
+							example:
+								'enviarFormularioContato() → validarEntrada() → chamarAPIEmail() → confirmarEntrega()',
+						},
+						{
+							icon: '👆',
+							title: 'Botão Invisível no Mobile',
+							problem:
+								'Botão de envio fica oculto em dispositivos móveis devido a problemas de media query CSS',
+							solution:
+								'Testes de interface simulam interações móveis e capturam problemas de design responsivo em dispositivos',
+							example:
+								'clicarBotaoEnviar() deveria disparar envio do formulário em telas de 320px a 1920px',
+						},
+						{
+							icon: '🔐',
+							title: 'Vulnerabilidade de Bypass de Autenticação',
+							problem:
+								'Usuários podem acessar páginas de admin protegidas manipulando parâmetros de URL',
+							solution:
+								'Testes ponta a ponta verificam fluxos completos de autenticação e verificações de autorização',
+							example:
+								'acessarPainelAdmin() deveria redirecionar para login quando usuário não tem privilégios de admin',
+						},
+						{
+							icon: '💳',
+							title: 'Condição de Corrida no Processamento de Pagamento',
+							problem:
+								'Site de e-commerce cobra clientes múltiplas vezes devido a duplo clique no botão de pagamento',
+							solution:
+								'Testes de integração garantem que processamento de pagamento lida com requisições concorrentes adequadamente',
+							example:
+								'processarPagamento() → prevenirDuplicatas() → cobrarCartao() → criarPedido()',
+						},
+						{
+							icon: '📱',
+							title: 'Problema de Compatibilidade Cross-Browser',
+							problem:
+								'Aplicação funciona perfeitamente no Chrome mas quebra nos navegadores Safari e Firefox',
+							solution:
+								'Testes de interface executam através de múltiplos navegadores para capturar problemas de compatibilidade cedo',
+							example:
+								'fluxoLoginUsuario() deveria funcionar consistentemente no Chrome, Firefox, Safari e Edge',
 						},
 					],
 				}}
