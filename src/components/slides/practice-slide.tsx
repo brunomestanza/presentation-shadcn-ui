@@ -61,12 +61,6 @@ export function PracticeSlide({ data }: PracticeSlideProps) {
 					</h3>
 					<ul className="list-none m-0 p-0">
 						<li className="py-1.5 text-zinc-400 relative pl-6 text-sm md:text-base break-words before:content-['💡'] before:absolute before:left-0">
-							Execute seus testes com:{' '}
-							<code className="bg-black text-emerald-500 px-1.5 py-0.5 rounded font-mono text-xs md:text-sm break-words">
-								node test.js
-							</code>
-						</li>
-						<li className="py-1.5 text-zinc-400 relative pl-6 text-sm md:text-base break-words before:content-['💡'] before:absolute before:left-0">
 							Use{' '}
 							<code className="bg-black text-emerald-500 px-1.5 py-0.5 rounded font-mono text-xs md:text-sm break-words">
 								console.log()

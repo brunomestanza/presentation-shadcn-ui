@@ -11,6 +11,7 @@ import { PresenterSlide } from './slides/presenter-slide'
 import { PyramidSlide } from './slides/pyramid-slide'
 import { QASlide } from './slides/qa-slide'
 import { QuizSlide } from './slides/quiz-slide'
+import { TerminalSlide } from './slides/terminal-slide'
 import { TitleSlide } from './slides/title-slide'
 import { UseCasesSlide } from './slides/use-cases-slide'
 
@@ -38,6 +39,8 @@ export function SlideRenderer({ slide, isActive }: SlideRendererProps) {
 				return <PresenterSlide data={slide} />
 			case 'concept':
 				return <ConceptSlide data={slide} />
+			case 'terminal':
+				return <TerminalSlide data={slide} />
 			case 'pyramid':
 				return <PyramidSlide data={slide} />
 			case 'code-example':

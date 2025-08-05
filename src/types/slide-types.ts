@@ -4,6 +4,7 @@ export interface SlideData {
 		| 'title'
 		| 'presenter'
 		| 'concept'
+		| 'terminal'
 		| 'pyramid'
 		| 'code-example'
 		| 'use-cases'

@@ -65,7 +65,7 @@ export function QuizSlide({ data }: QuizSlideProps) {
 		setAnsweredQuestions(new Array(questions.length).fill(false))
 	}
 
-	const isQuizComplete = answeredQuestions.every((answered) => answered)
+	const isQuizComplete = answeredQuestions.length === questions.length
 
 	return (
 		<div className="min-h-[400px] w-full">

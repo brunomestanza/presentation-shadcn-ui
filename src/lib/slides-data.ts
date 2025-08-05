@@ -45,25 +45,6 @@ export const slidesData: SlideData[] = [
 		},
 	},
 	{
-		id: 2,
-		type: 'concept',
-		title: 'Introdução aos Testes Automatizados',
-		conceptTitle: '🚀 Por que os Testes Automatizados Importam:',
-		concepts: [
-			'Fornecem feedback mais rápido durante os ciclos de desenvolvimento',
-			'Aumentam a qualidade geral e confiabilidade do código',
-			'Reduzem o esforço de testes manuais e erros humanos',
-			'Permitem refatoração e atualizações de código com confiança',
-			'Suportam integração contínua e implantação (CI/CD)',
-			'Capturam bugs antes que cheguem aos ambientes de produção',
-			'Economizam tempo e dinheiro a longo prazo',
-			'Melhoram a produtividade da equipe e confiança do desenvolvedor',
-			'Fornecem documentação viva do comportamento do sistema',
-			'Permitem testes de regressão a cada mudança de código',
-		],
-		imageUrl: '/test-introduction.png',
-	},
-	{
 		id: 3,
 		type: 'concept',
 		title: 'O que são Testes Automatizados?',
@@ -71,8 +52,7 @@ export const slidesData: SlideData[] = [
 		concepts: [
 			'Programas que verificam se seu código funciona corretamente',
 			'Executam automaticamente sem intervenção humana',
-			'Parte essencial do ciclo de vida de desenvolvimento de software (SDLC)',
-			'Vêm em diferentes tipos: Testes Unitários, de Integração e de Interface',
+			'Parte essencial do ciclo de vida de desenvolvimento de software',
 			'Fornecem documentação de como seu código deve se comportar',
 			'Agem como uma rede de segurança ao fazer mudanças no código',
 			'Executam consistentemente e repetidamente com os mesmos resultados',
@@ -82,12 +62,31 @@ export const slidesData: SlideData[] = [
 	},
 	{
 		id: 4,
+		type: 'terminal',
+		title: 'Uma simulação de como isso ocorreria na prática',
+	},
+	{
+		id: 5,
+		type: 'concept',
+		title: 'Introdução aos Testes Automatizados',
+		conceptTitle: '🚀 Por que os Testes Automatizados Importam:',
+		concepts: [
+			'Fornecem feedback mais rápido durante os ciclos de desenvolvimento',
+			'Aumentam a qualidade geral e confiabilidade do código',
+			'Permitem refatoração e atualizações de código com confiança',
+			'Capturam bugs antes que cheguem aos ambientes de produção',
+			'Economizam tempo e dinheiro a longo prazo',
+		],
+		imageUrl: '/test-introduction.png',
+	},
+	{
+		id: 6,
 		type: 'pyramid',
 		title: 'A Pirâmide de Testes',
 		imageUrl: '/test-pyramid.png',
 	},
 	{
-		id: 5,
+		id: 7,
 		type: 'concept',
 		title: 'O que são Testes Unitários?',
 		conceptTitle: '🔬 Testes Unitários:',
@@ -97,8 +96,6 @@ export const slidesData: SlideData[] = [
 			'Devem ser rápidos, confiáveis e independentes de dependências externas',
 			'Fáceis de escrever, manter e entender',
 			'Formam a base da sua suíte de testes (70-80% de todos os testes)',
-			'Ajudam a capturar bugs cedo no processo de desenvolvimento',
-			'Fornecem feedback imediato durante a codificação',
 			'Devem testar um comportamento específico com asserções claras',
 			'Usam mocks ou stubs para isolar a unidade sob teste',
 			'Executam em milissegundos, permitindo ciclos de desenvolvimento rápidos',
@@ -108,7 +105,7 @@ export const slidesData: SlideData[] = [
 		imageUrl: '/what-are-unit-tests.png',
 	},
 	{
-		id: 6,
+		id: 8,
 		type: 'code-example',
 		title: 'Exemplo de Teste Unitário',
 		implementation:
@@ -179,18 +176,15 @@ function testarCalculadora() {
 testarCalculadora();`,
 	},
 	{
-		id: 7,
+		id: 9,
 		type: 'concept',
 		title: 'O que são Testes de Integração?',
 		conceptTitle: '🔗 Testes de Integração:',
 		concepts: [
 			'Testam como múltiplas unidades trabalham juntas como um grupo',
-			'Verificam se diferentes partes da aplicação interagem corretamente',
 			'Focam no fluxo de dados e comunicação entre componentes',
 			'Capturam problemas que testes unitários podem perder nas interações de componentes',
 			'Mais complexos que testes unitários, mas fornecem cobertura mais ampla do sistema',
-			'Testam cenários realistas envolvendo múltiplas funções ou módulos',
-			'Garantem que componentes integrados funcionem como um sistema coeso',
 			'Frequentemente envolvem testes com dependências externas ou APIs',
 			'Tipicamente compõem 20-30% da sua suíte de testes',
 			'Podem requerer bancos de dados ou serviços',
@@ -198,7 +192,7 @@ testarCalculadora();`,
 		imageUrl: '/what-are-integration-tests.png',
 	},
 	{
-		id: 8,
+		id: 10,
 		type: 'code-example',
 		title: 'Exemplo de Teste de Integração',
 		conceptTitle: '🔗 Características do Teste de Integração:',
@@ -221,8 +215,8 @@ function validarUsuario(dadosUsuario) {
 }
 
 function salvarUsuario(dadosUsuario) {
-  const usuarioExistente = usuarios.find(u => u.email === dadosUsuario.email);
-  if (usuarioExistente) {
+  const usuario = usuarios.find(u => u.email === dadosUsuario.email);
+  if (usuario) {
     throw new Error('Usuário já existe');
   }
   
@@ -339,26 +333,23 @@ function testarRegistroUsuario() {
 testarRegistroUsuario();`,
 	},
 	{
-		id: 9,
+		id: 11,
 		type: 'concept',
 		title: 'O que são Testes de Interface (Ponta a Ponta)?',
 		conceptTitle: '🖱️ Testes de Interface (Ponta a Ponta):',
 		concepts: [
-			'Testam a jornada completa do usuário através da aplicação',
-			'Simulam interações reais do usuário com a interface',
+			'Testam a jornada completa do usuário através da aplicação, simulam interações reais',
 			'Verificam se todos os componentes funcionam juntos como esperado',
 			'Capturam problemas que os usuários realmente encontrariam',
 			'Mais lentos, mas o tipo mais abrangente de teste',
-			'Testam a aplicação da perspectiva do usuário',
 			'Frequentemente envolvem automação de navegador e simulação de interface de usuário',
 			'Fornecem confiança de que todo o sistema funciona corretamente',
 			'Tipicamente compõem 5-10% da sua suíte de testes',
-			'Podem testar através de diferentes navegadores e dispositivos',
-			'Podem envolver testes com ambientes reais ou de staging',
 		],
+		imageUrl: '/what-are-e2e-tests.png',
 	},
 	{
-		id: 10,
+		id: 12,
 		type: 'code-example',
 		title: 'Exemplo de Teste de Interface (Ponta a Ponta)',
 		conceptTitle: '🖱️ Características do Teste de Interface:',
@@ -550,7 +541,7 @@ function testarFluxoCompras() {
 testarFluxoCompras();`,
 	},
 	{
-		id: 11,
+		id: 12,
 		type: 'patterns',
 		title: 'Padrões de Teste e Melhores Práticas',
 		patterns: [
@@ -636,7 +627,7 @@ testarFluxoCompras();`,
 						icon: '🏷️',
 						description: 'Use nomes consistentes e significativos',
 						details: [
-							"Use nomes descritivos: 'deveria_retornar_erro_quando_email_invalido'",
+							"Use nomes descritivos: 'should create an user'",
 							'Siga convenções da equipe consistentemente',
 							'Inclua o comportamento esperado no nome',
 						],
@@ -656,7 +647,7 @@ testarFluxoCompras();`,
 		],
 	},
 	{
-		id: 12,
+		id: 13,
 		type: 'use-cases',
 		title: 'Casos de Uso do Mundo Real',
 		useCases: [
@@ -702,7 +693,7 @@ testarFluxoCompras();`,
 			},
 			{
 				icon: '💳',
-				title: 'Condição de Corrida no Processamento de Pagamento',
+				title: 'Pagamentos Não Intencionais em Duplicidade',
 				problem:
 					'Site de e-commerce cobra clientes múltiplas vezes devido a duplo clique no botão de pagamento',
 				solution:
@@ -723,7 +714,7 @@ testarFluxoCompras();`,
 		],
 	},
 	{
-		id: 13,
+		id: 14,
 		type: 'quiz',
 		title: 'Quiz Interativo',
 		quizQuestions: [
@@ -795,7 +786,7 @@ testarFluxoCompras();`,
 		],
 	},
 	{
-		id: 14,
+		id: 15,
 		type: 'practice',
 		title: 'Prática Hands-On',
 		exercises: [
@@ -921,7 +912,7 @@ function obterTarefasFiltradas() {
 		],
 	},
 	{
-		id: 15,
+		id: 16,
 		type: 'frameworks',
 		title: 'Bons Frameworks de Tecnologia para Testes',
 		frameworks: [
@@ -1070,7 +1061,7 @@ function obterTarefasFiltradas() {
 		],
 	},
 	{
-		id: 16,
+		id: 17,
 		type: 'qa',
 		title: 'Perguntas e Discussão',
 		questions: [
